@@ -100,6 +100,77 @@ inputDecorationTheme: InputDecorationTheme(
 ```
 
 
+# ✅ 1. Modify Drawer and TabBar — Light Theme Example
+
+```
+static final ThemeData lightTheme = ThemeData(
+  brightness: Brightness.light,
+  scaffoldBackgroundColor: Colors.white,
+  drawerTheme: DrawerThemeData(
+    backgroundColor: Colors.grey.shade100,        // Drawer background
+    elevation: 4,
+    surfaceTintColor: Colors.white,
+  ),
+  tabBarTheme: TabBarTheme(
+    labelColor: Colors.tealAccent.shade700,       // Selected tab text/icon
+    unselectedLabelColor: Colors.grey.shade600,   // Unselected tab text/icon
+    indicator: UnderlineTabIndicator(
+      borderSide: BorderSide(width: 2, color: Colors.tealAccent.shade700),
+    ),
+    labelStyle: TextStyle(fontWeight: FontWeight.bold),
+    unselectedLabelStyle: TextStyle(fontWeight: FontWeight.normal),
+  ),
+);
+```
+
+## 🧠 What It Means:
+- ```drawerTheme```: Controls how the drawer background and elevation look in light mode.
+
+- ```tabBarTheme```: Controls how the tabs behave — selected/unselected colors, indicator (underline), and text style.
+
+
+# 🌑 2. Modify Drawer and TabBar — Dark Theme (Black UI)
+
+```
+static final ThemeData darkTheme = ThemeData(
+  brightness: Brightness.dark,
+  scaffoldBackgroundColor: Colors.black,
+  drawerTheme: DrawerThemeData(
+    backgroundColor: Colors.grey.shade900,        // Dark drawer
+    elevation: 4,
+    surfaceTintColor: Colors.grey.shade800,
+  ),
+  tabBarTheme: TabBarTheme(
+    labelColor: Colors.tealAccent.shade200,       // Active tab
+    unselectedLabelColor: Colors.white54,         // Inactive tab
+    indicator: UnderlineTabIndicator(
+      borderSide: BorderSide(width: 2, color: Colors.tealAccent.shade200),
+    ),
+    labelStyle: TextStyle(fontWeight: FontWeight.bold),
+    unselectedLabelStyle: TextStyle(fontWeight: FontWeight.normal),
+  ),
+);
+```
+
+## 🧾 Summary Table: Drawer & TabBar
+
+```
+| Feature      | Light Theme                  | Dark Theme                   |
+| ------------ | ---------------------------- | ---------------------------- |
+| Drawer BG    | `Colors.grey.shade100`       | `Colors.grey.shade900`       |
+| Tab Selected | `Colors.tealAccent.shade700` | `Colors.tealAccent.shade200` |
+| Tab Unselect | `Colors.grey.shade600`       | `Colors.white54`             |
+| Indicator    | Teal underline               | Teal underline               |
+
+```
+
+## 👨‍🏫 Final Tips:
+
+ - You can test this using a DefaultTabController with a TabBar in the AppBar.
+
+ - For the drawer, just use Drawer() and Scaffold.drawer — the theme will auto-apply.
+
+ - Want icons or text colors inside drawer? Customize ListTileThemeData.
 
 
 
